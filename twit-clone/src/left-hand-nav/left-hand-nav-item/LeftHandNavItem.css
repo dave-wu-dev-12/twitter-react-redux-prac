@@ -1,0 +1,22 @@
+.siteIconImage {
+  width: 50px;
+}
+
+.leftHandNavItem_Container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 1em;
+  border-radius: 100px;
+  transition: background-color 0.5s, color 0.25s;
+  transition-timing-function: ease-in;
+}
+
+.leftHandNavItem_Container:hover {
+  background-color: lightblue;
+  color: darkblue;
+}
+
+.itemIcon {
+  margin-right: 1em;
+}

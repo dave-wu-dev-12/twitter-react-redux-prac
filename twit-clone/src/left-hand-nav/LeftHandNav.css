@@ -1,0 +1,29 @@
+.leftHandNav_Container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 30vw;
+  align-items: flex-end;
+}
+
+.leftHandNav_Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: fixed;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.tweetButton {
+  background-color: rgb(29, 161, 242);
+  border: none;
+  padding: 1em 4em;
+  border-radius: 100px;
+  color: white;
+  font-weight: 900;
+  font-size: larger;
+  margin: 1em 0;
+}

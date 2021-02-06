@@ -1,0 +1,17 @@
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.userInfoName {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0;
+  flex: 1;
+  align-items: center;
+}
+
+.userInfoName p {
+  margin: 0 6px;
+}
