@@ -1,0 +1,39 @@
+.postInput_container {
+  display: flex;
+  padding: 0em 0.75em;
+}
+
+.postInput_form {
+  flex: 1;
+}
+
+.postInput_input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline-style: none;
+  font-size: 1.25em;
+  padding: 0.5em 0;
+}
+
+.postInput_action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75em;
+}
+
+.postInput_actionIcons .MuiSvgIcon-root {
+  margin: 0.25em;
+}
+
+.tweetbuttonPost {
+  padding: 0.25em 1em !important;
+  font-weight: 300 !important;
+}
+
+.avatarIcon {
+  font-size: 3em;
+  margin-right: 0.25em;
+  margin-top: 0.25em;
+}
