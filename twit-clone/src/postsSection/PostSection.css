@@ -1,7 +1,7 @@
 .postSection_container {
   color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
   width: 60vw;
 }

@@ -1,0 +1,31 @@
+.posts_container,
+.userPost_header,
+.userPost_header_username,
+.userPost_container,
+.userPost_header_username,
+.userPost_text_actions {
+  display: flex;
+}
+
+.posts_container {
+  padding: 0 0.5em 0.5em 0.5em;
+  border: 1px solid gray;
+}
+
+.userPost_container {
+  flex-direction: column;
+  flex: 1;
+}
+
+.userPost_header,
+.userPost_header_username {
+  align-items: center;
+}
+
+.userPost_header {
+  justify-content: space-between;
+}
+
+.userPost_text_actions_item {
+  flex: 1;
+}
