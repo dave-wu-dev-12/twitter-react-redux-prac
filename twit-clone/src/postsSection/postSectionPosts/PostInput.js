@@ -7,12 +7,13 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import EventIcon from "@material-ui/icons/Event";
 import ShareIcon from "@material-ui/icons/Share";
 
-function PostInput() {
+function PostInput({ tweetInputRef, submitPost }) {
   return (
     <div className="postInput_container">
       <AccountCircleIcon className="avatarIcon" />
       <div className="postInput_form">
         <input
+          ref={tweetInputRef}
           type="text"
           placeholder="What's happening"
           className="postInput_input"
@@ -25,7 +26,12 @@ function PostInput() {
             <InsertEmoticonIcon />
             <EventIcon />
           </div>
-          <button className="tweetButton tweetbuttonPost">Tweet</button>
+          <button
+            className="tweetButton tweetbuttonPost"
+            onClick={() => submitPost()}
+          >
+            Tweet
+          </button>
         </div>
       </div>
     </div>

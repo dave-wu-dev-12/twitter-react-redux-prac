@@ -19,36 +19,26 @@ const reducer = (state = initialState, action) => {
   // if you are editing an obj in an array, copy obj, edit, copy array, insert obj into array
 
   switch (action.type) {
-    case "increment_counter":
-      let incrementedCounter = state.counter + action.additional;
+    case "init_posts":
+      let setOfPosts = [...action.posts.data];
       return {
         ...state,
+        posts: setOfPosts,
         loading: false,
-        counter: incrementedCounter,
-        results: [
-          ...state.results,
-          { id: new Date(), value: incrementedCounter },
-        ],
       };
 
-    case "delete_counter_result":
+    case "add_post":
+      let newPosts = [...state.posts, action.postToAdd];
       return {
         ...state,
-        results: state.results.filter(
-          (res) => res.value != action.valueToRemove
-        ),
+        posts: newPosts,
+        loading: false,
       };
 
-    case "update_burger_total":
+    case "set_loader":
       return {
         ...state,
-        burgerTotal: action.burgerTotal,
-      };
-
-    case "loading_start":
-      return {
-        ...state,
-        loading: true,
+        loading: action.loadValue,
       };
 
     default:
