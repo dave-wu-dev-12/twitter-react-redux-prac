@@ -41,6 +41,19 @@ const reducer = (state = initialState, action) => {
         loading: action.loadValue,
       };
 
+    case "update_post":
+      let updatedPosts = state.posts.map((post) => {
+        if (post.id == action.updatedPost.id) {
+          return action.updatedPost;
+        } else {
+          return post;
+        }
+      });
+      return {
+        ...state,
+        posts: updatedPosts,
+        loading: false,
+      };
     default:
       return state;
   }

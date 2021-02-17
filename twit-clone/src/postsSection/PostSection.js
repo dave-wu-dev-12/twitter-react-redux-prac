@@ -51,10 +51,39 @@ function PostSection() {
       });
   };
 
+  const updatePost = (updatedPost) => {
+    dispatch({ type: "set_loader", loadValue: true });
+
+    console.log(tweetInputRef.current.value);
+    let postBody = { ...updatedPost };
+
+    axios
+      .put(
+        "https://jsonplaceholder.typicode.com/posts/" + updatedPost.id,
+        postBody
+      )
+      .then((res) => {
+        dispatch({ type: "update_post", updatedPost: res.data });
+      })
+      .catch((error) => {
+        // show error message
+      });
+  };
+
+  const deletePost = () => {};
+
   // build the list of posts
   let listOfPostsHandler = null;
   listOfPostsHandler = setOfPosts.map((post) => {
-    return <Post />;
+    return (
+      <Post
+        body={post.body}
+        title={post.title}
+        userId={post.userId}
+        id={post.id}
+        updatePost={updatePost}
+      />
+    );
   });
 
   return (
