@@ -22,12 +22,15 @@ function PostSection() {
     // set the load screen
     dispatch({ type: "set_loader", loadValue: true });
 
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => {
-        dispatch({ type: "init_posts", posts: res });
-      })
-      .catch((error) => {});
+    // mock server request
+    setTimeout(() => {
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((res) => {
+          dispatch({ type: "init_posts", posts: res });
+        })
+        .catch((error) => {});
+    }, 5000);
 
     return () => {};
   }, []);
@@ -104,8 +107,7 @@ function PostSection() {
         <PostSectionHeader />
         <PostInput tweetInputRef={tweetInputRef} submitPost={submitPost} />
         <hr />
-        {<Loader />}
-        {listOfPostsHandler}
+        {isPageLoading ? <Loader /> : listOfPostsHandler}
       </div>
       <div className="extra_container">
         <PostExtras />
