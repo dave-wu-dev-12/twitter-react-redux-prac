@@ -8,7 +8,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-function Post({ body, title, userId, id, updatePost }) {
+function Post({ body, title, userId, id, updatePost, deletePost }) {
   const [editMode, setEditMode] = useState(false);
   const [postTitle, setPostTitle] = useState(title);
   const [postBody, setPostBody] = useState(body);
@@ -32,10 +32,16 @@ function Post({ body, title, userId, id, updatePost }) {
     setEditMode(false);
   };
 
+  const beginPostDeletion = () => {
+    setEditMode(false);
+    deletePost(id);
+  };
+
   // designate post elements here for better readability
   let titleHandler = null;
   titleHandler = editMode ? (
     <input
+      className="editInputTitle"
       type="text"
       value={postTitle}
       onChange={(e) => setPostTitle(e.currentTarget.value)}
@@ -55,8 +61,19 @@ function Post({ body, title, userId, id, updatePost }) {
         value={postBody}
         onChange={(e) => setPostBody(e.currentTarget.value)}
       ></textarea>
-      <button onClick={sumbitEdittedPost}>UPDATE</button>
-      <button onClick={() => setEditMode(false)}>CANCEL</button>
+      <div className="editBodyButtonContainer">
+        <div>
+          <button className="editPostButton" onClick={sumbitEdittedPost}>
+            UPDATE
+          </button>
+          <button className="editPostButton" onClick={() => setEditMode(false)}>
+            CANCEL
+          </button>
+        </div>
+        <button className="editPostButton" onClick={beginPostDeletion}>
+          DELETE
+        </button>
+      </div>
     </div>
   ) : (
     <h4>{body}</h4>

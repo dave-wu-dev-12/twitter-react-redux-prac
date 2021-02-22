@@ -29,3 +29,27 @@
 .userPost_text_actions_item {
   flex: 1;
 }
+
+.userPost_header_username {
+  width: 80%;
+}
+
+.editInputTitle {
+  flex: 1;
+  margin-left: 1em;
+}
+
+.editBodyButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editPostButton {
+  background-color: rgb(29, 161, 242);
+  border: none;
+  padding: 0.5em 2em;
+  border-radius: 100px;
+  color: white;
+  font-weight: 300;
+  margin: 1em;
+}

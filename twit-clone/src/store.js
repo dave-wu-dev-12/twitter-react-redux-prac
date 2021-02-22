@@ -54,6 +54,17 @@ const reducer = (state = initialState, action) => {
         posts: updatedPosts,
         loading: false,
       };
+
+    case "delete_post":
+      let remainingPosts = state.posts.filter(
+        (post) => post.id != action.postToDeleteId
+      );
+      return {
+        ...state,
+        posts: remainingPosts,
+        loading: false,
+      };
+
     default:
       return state;
   }

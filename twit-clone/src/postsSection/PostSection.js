@@ -70,7 +70,18 @@ function PostSection() {
       });
   };
 
-  const deletePost = () => {};
+  const deletePost = (id) => {
+    //postToDeleteId
+    dispatch({ type: "set_loader", loadValue: true });
+    axios
+      .delete("https://jsonplaceholder.typicode.com/posts/" + id)
+      .then((res) => {
+        dispatch({ type: "delete_post", postToDeleteId: id });
+      })
+      .catch((error) => {
+        // show error message
+      });
+  };
 
   // build the list of posts
   let listOfPostsHandler = null;
@@ -82,6 +93,7 @@ function PostSection() {
         userId={post.userId}
         id={post.id}
         updatePost={updatePost}
+        deletePost={deletePost}
       />
     );
   });
@@ -92,7 +104,7 @@ function PostSection() {
         <PostSectionHeader />
         <PostInput tweetInputRef={tweetInputRef} submitPost={submitPost} />
         <hr />
-        {isPageLoading && <Loader />}
+        {<Loader />}
         {listOfPostsHandler}
       </div>
       <div className="extra_container">
