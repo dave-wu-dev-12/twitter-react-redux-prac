@@ -65,6 +65,13 @@ const reducer = (state = initialState, action) => {
         loading: false,
       };
 
+    case "clear_localPosts":
+      return {
+        ...state,
+        posts: [],
+        loading: true,
+      };
+
     default:
       return state;
   }
