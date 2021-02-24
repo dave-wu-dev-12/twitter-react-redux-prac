@@ -2,6 +2,7 @@ import "./App.css";
 import LeftHandNav from "./left-hand-nav/LeftHandNav";
 import PostSection from "./postsSection/PostSection";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Messages from "./messages/Messages";
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
           <Route path="/Notifications">
             <div>Notifications</div>
           </Route>
+          <Route path="/Messages/:messageId">
+            <Messages />
+          </Route>
           <Route path="/Messages">
-            <div>Messages</div>
+            <Messages />
           </Route>
           <Route path="/">
             {/* center posts */}
