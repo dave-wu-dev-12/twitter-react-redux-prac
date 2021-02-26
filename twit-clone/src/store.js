@@ -2,6 +2,7 @@ const initialState = {
   posts: [],
   loading: false,
   authenticated: false,
+  messages: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         posts: setOfPosts,
+        loading: false,
+      };
+
+    case "init_messages":
+      let setOfMessages = [...action.messages.data];
+      return {
+        ...state,
+        messages: setOfMessages,
         loading: false,
       };
 
@@ -69,6 +78,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         posts: [],
+        loading: true,
+      };
+
+    case "clear_localMessages":
+      return {
+        ...state,
+        messages: [],
         loading: true,
       };
 

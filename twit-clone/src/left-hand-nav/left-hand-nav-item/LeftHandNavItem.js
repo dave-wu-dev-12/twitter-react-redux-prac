@@ -71,6 +71,11 @@ function LeftHandNavItem({ text }) {
       // clear posts before going to home so old posts dont show
       dispatch({ type: "clear_localPosts", loadValue: true });
     }
+
+    if (path.includes("Message") > -1) {
+      // clear posts before going to home so old posts dont show
+      dispatch({ type: "clear_localMessages", loadValue: true });
+    }
     history.push(`/${path}`);
   };
 

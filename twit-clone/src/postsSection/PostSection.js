@@ -30,7 +30,7 @@ function PostSection() {
           dispatch({ type: "init_posts", posts: res });
         })
         .catch((error) => {});
-    }, 5000);
+    }, 2000);
 
     return () => {};
   }, []);
