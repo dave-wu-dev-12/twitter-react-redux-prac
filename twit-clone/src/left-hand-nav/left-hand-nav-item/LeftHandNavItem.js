@@ -17,7 +17,7 @@ function LeftHandNavItem({ text }) {
       leftHandNavItemRow = (
         <div
           className="leftHandNavItem_Container"
-          onClick={() => navigateToRoute("")}
+          onClick={() => navigateToRoute("/")}
         >
           <HomeIcon className="itemIcon" /> <h2>{text}</h2>
         </div>
@@ -27,7 +27,7 @@ function LeftHandNavItem({ text }) {
       leftHandNavItemRow = (
         <div
           className="leftHandNavItem_Container"
-          onClick={() => navigateToRoute(text)}
+          onClick={() => navigateToRoute(`/${text}`)}
         >
           <ExploreIcon className="itemIcon" /> <h2>{text}</h2>
         </div>
@@ -37,7 +37,7 @@ function LeftHandNavItem({ text }) {
       leftHandNavItemRow = (
         <div
           className="leftHandNavItem_Container"
-          onClick={() => navigateToRoute(text)}
+          onClick={() => navigateToRoute(`/${text}`)}
         >
           <NotificationsIcon className="itemIcon" /> <h2>{text}</h2>
         </div>
@@ -47,7 +47,7 @@ function LeftHandNavItem({ text }) {
       leftHandNavItemRow = (
         <div
           className="leftHandNavItem_Container"
-          onClick={() => navigateToRoute(text)}
+          onClick={() => navigateToRoute(`/${text}`)}
         >
           <EmailIcon className="itemIcon" /> <h2>{text}</h2>
         </div>
@@ -57,7 +57,7 @@ function LeftHandNavItem({ text }) {
     default:
       leftHandNavItemRow = (
         <img
-          onClick={() => navigateToRoute(text)}
+          onClick={() => navigateToRoute("/")}
           className="siteIconImage"
           src="https://i.pinimg.com/originals/5c/a9/8c/5ca98c73b2bb7a02bf8350933c7ca443.png"
           alt="logo"
@@ -67,16 +67,15 @@ function LeftHandNavItem({ text }) {
   }
 
   const navigateToRoute = (path) => {
-    if (path == "") {
-      // clear posts before going to home so old posts dont show
+    if (path !== history.location.pathname) {
+      // clear posts before route change
       dispatch({ type: "clear_localPosts", loadValue: true });
-    }
-
-    if (path.includes("Message") > -1) {
-      // clear posts before going to home so old posts dont show
       dispatch({ type: "clear_localMessages", loadValue: true });
     }
-    history.push(`/${path}`);
+
+    // router is smart enough to not rerender a comp if we are on the page
+    // and attempt to navigate to it through the push
+    history.push(`${path}`);
   };
 
   return <div>{leftHandNavItemRow}</div>;
